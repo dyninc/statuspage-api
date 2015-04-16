@@ -1,6 +1,6 @@
 {
   "name": "statuspage-api",
-  "version": "0.3.1",
+  "version": "0.3.3",
   "description": "A wrapper for select statuspage.io API commands",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,8 @@
     "chai": "^2.1.2",
     "mocha": "^2.2.1",
     "gently": "0.9.2",
-    "semver": ""
+    "semver": "",
+    "jslint": ""
   },
   "dependencies": {
     "underscore": "1.8.2",
