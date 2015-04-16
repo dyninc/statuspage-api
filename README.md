@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/statuspage-api.svg)](http://badge.fury.io/js/statuspage-api)
+[![license badge](https://img.shields.io/badge/license-MIT-blue.svg)](http://choosealicense.com/licenses/mit/)
 # statuspage-api
 
 GET and POST for select StatusPage.io API elements.
