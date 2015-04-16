@@ -59,7 +59,7 @@ var args = {
 statuspage.post("incidents", args, printAll);
 ```
 
-For more information see [example](blob/dev/example/index.js)
+For more information see [example](example/index.js)
 
 ## Supported calls:
 
