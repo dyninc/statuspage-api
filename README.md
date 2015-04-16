@@ -3,8 +3,9 @@
 GET and POST for select StatusPage.io API elements.
 
 ## Installation
-
-    npm install statuspage-api
+```bash
+npm install statuspage-api
+```
 
 ## Usage
 ```JavaScript
@@ -16,7 +17,7 @@ var StatusPageAPI = require('./../lib/statuspage/index').StatusPageAPI;
 var statuspage = new StatusPageAPI({
   pageid: "<ADD YOUR OWN PAGE ID>",
   apikey: "<ADD YOUR OWN API KEY>",
-  host: "api.statuspage.io",      // Override the default host  
+  host: "api.statuspage.io",      // Override the default host
   port: 443,                // Override the default port
   // useragent: "statuspage-node",  // Override the default useragent
   debuglevel: "warn"      // Set debug levele: debug, info, warn, error
@@ -28,7 +29,7 @@ var statuspage = new StatusPageAPI({
 var printAll = function(result) {
   console.log("Status: ", result.status);
   if (result.error != null) {
-    console.log("Error: ", result.error);   
+    console.log("Error: ", result.error);
   }
   if (result.status == "success"){
     console.log("Data: ", result.data);
@@ -43,7 +44,7 @@ var printAll = function(result) {
 /*
  * POST a scheduled incident and print the result
  */
-var args = { 
+var args = {
     "incident[name]": "Testing API components",
     "incident[status]": "scheduled",
     "incident[scheduled_for]":  "2015-04-03T18:30:05+00:00",
@@ -57,11 +58,12 @@ var args = {
 }
 statuspage.post("incidents", args, printAll);
 ```
+
 For more information see [example](blob/dev/example/index.js)
 
 ## Supported calls:
 
-Accepts a subset of StatusPage.io collections or elements. 
+Accepts a subset of StatusPage.io collections or elements.
 
 * GET
   * `pages`
