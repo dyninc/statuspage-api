@@ -1,4 +1,4 @@
-var StatusPageAPI = require('./../lib/statuspage/index').StatusPageAPI;
+var StatusPageAPI = require('../../statuspage-api');
 
 /*
  * Initialize object
@@ -87,9 +87,9 @@ var printComponentSummary = function(result) {
 var args = { 
 		"incident[name]": "Testing API components",
 		"incident[status]": "scheduled",
-		"incident[scheduled_for]":	"2015-04-03T18:30:05+00:00",
-		"incident[scheduled_until]": "2015-04-03T18:35:05+00:00",
-		"incident[message]": "This is only a test. Submitted around 2015-04-03T12:05:05+00:00\n-Ethan",
+		"incident[scheduled_for]":	"2015-05-03T18:30:05+00:00",
+		"incident[scheduled_until]": "2015-05-03T18:35:05+00:00",
+		"incident[message]": "This is only a test. Submitted around 2015-04-16T13:30:05+00:00\n-Ethan",
 		"incident[scheduled_remind_prior]": "t",
 		"incident[scheduled_auto_in_progress]": "t",
 		"incident[scheduled_auto_completed]": "t",
@@ -97,5 +97,5 @@ var args = {
 		"incident[component_ids]": ["tblsw29xd923","tvb8cjnr022n"]
 }
 
-statuspage.post("incidents", args, printAll);
+//statuspage.post("incidents", args, printAll);
 

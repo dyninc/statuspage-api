@@ -9,7 +9,9 @@ npm install statuspage-api
 
 ## Usage
 ```JavaScript
-var StatusPageAPI = require('./../lib/statuspage/index').StatusPageAPI;
+var StatusPageAPI = require('statuspage-api');
+// Or for local example:
+// var StatusPageAPI = require('../../statuspage-api');
 
 /*
  * Initialize object
