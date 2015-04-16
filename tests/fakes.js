@@ -1,37 +1,37 @@
 var EventEmitter = require('events').EventEmitter;
 
-var Client = exports.Client = function(port, host) {
-  EventEmitter.call(this);
-  this.port = port;
-  this.host = host;
+var Client = exports.Client = function (port, host) {
+    EventEmitter.call(this);
+    this.port = port;
+    this.host = host;
 };
 
 Client.prototype = Object.create(EventEmitter.prototype);
 
-Client.prototype.request = function() {
+Client.prototype.request = function () {
     return new ClientRequest();
 };
 
-var ClientRequest = exports.ClientRequest = function() {
-  EventEmitter.call(this);
+var ClientRequest = exports.ClientRequest = function () {
+    EventEmitter.call(this);
 };
 
 ClientRequest.prototype = Object.create(EventEmitter.prototype);
 
-ClientRequest.prototype.write = function() {};
+ClientRequest.prototype.write = function () {};
 
-ClientRequest.prototype.end = function() {};
+ClientRequest.prototype.end = function () {};
 
-var ClientResponse = exports.ClientResponse = function() {
-  EventEmitter.call(this);
+var ClientResponse = exports.ClientResponse = function () {
+    EventEmitter.call(this);
 };
 
 ClientResponse.prototype = Object.create(EventEmitter.prototype);
 
-var StatusPageRequest = exports.StatusPageRequest = function(connection, url) {
-  EventEmitter.call(this);
-  this.connection = connection;
-  this.url = url;
+var StatusPageRequest = exports.StatusPageRequest = function (connection, url) {
+    EventEmitter.call(this);
+    this.connection = connection;
+    this.url = url;
 };
 
 StatusPageRequest.prototype = Object.create(EventEmitter.prototype);
