@@ -84,5 +84,5 @@ Read more about the statuspage.io API [here](http://doers.statuspage.io/api/v1/)
 ## Influences
 
 Heavily drawn from jammus's lastfm-node and DynectEmail-Node
-* http://github.com/jammus/lastfm-node
-* https://github.com/dyninc/DynectEmail-Node
+* http://github.com/jammus/lastfm-node (see LICENSE-lastfm-node)
+* https://github.com/dyninc/DynectEmail-Node (see LICENSE-DynectEmail-Node)
