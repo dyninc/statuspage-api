@@ -67,17 +67,29 @@ For more information see [example](example/index.js)
 
 ## Supported calls:
 
-Accepts a subset of StatusPage.io collections or elements.
+Accepts a subset of StatusPage.io collections or elements, not ALL.
 
 * GET
   * `pages`
   * `components`
   * `incidents`, `incidents/unresolved`, `incidents/scheduled`
   * `subscribers`
+  * `metrics_providers`
 
 * POST:
   * `incidents`
   * `subscribers`
+  * `metrics/data`
+  * `page_access_users`
+
+* PATCH:
+    * `pages`
+    * `components`
+    * `incidents`
+    * `page_access_users`
+
+* PUT:
+  * `components-groups`
 
 Read more about the statuspage.io API [here](http://doers.statuspage.io/api/v1/)
 
