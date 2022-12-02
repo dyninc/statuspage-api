@@ -123,6 +123,104 @@ describe('Request (POST:incidents)', function () {
     });
 });
 
+describe('Request (PATCH:incidents)', function () {
+
+  var statuspage, connection, url, gently, request, params, statuspageRequest;
+
+  var before = function () {
+    statuspage = new StatusPageAPI();
+    connection = new fakes.Client(80, statuspage.host);
+    request = new fakes.ClientRequest();
+    gently = new Gently();
+    var params = { foo:"bar" };
+    statuspageRequest = new StatusPageRequest(statuspage);
+  };
+
+  it("should create the update the incident", function () {
+    before();
+    var element = "incidents/w73483838",
+        correctPath = "/v1/pages/" + statuspage["pageid"] + "/" + element + ".json";
+    gently.expect(GENTLY_HIJACK.hijacked.https, "request", function (options) {
+      assert.equal(options["method"], "PATCH");
+      assert.equal(options["path"], correctPath);
+      assert.equal(options["host"], "api.statuspage.io");
+      assert.equal(options["port"], 443);
+      assert.equal(options["headers"]["Content-Type"], 'application/x-www-form-urlencoded');
+      return request;
+    });
+    statuspageRequest.sendRequest("PATCH", element);
+  });
+
+  it("should have the correct Content-Length", function () {
+    before();
+    var args = { key: "value" },
+        dataLength = Buffer.byteLength(querystring.stringify(args));
+    gently.expect(GENTLY_HIJACK.hijacked.https, "request", function (options) {
+      assert.equal(options["headers"]["Content-Type"], 'application/x-www-form-urlencoded');
+      assert.equal(options["headers"]["Content-Length"], dataLength);
+      return request;
+    });
+    statuspageRequest.sendRequest("PATCH", "incidents/w73483838", args);
+  });
+
+  it("should emit warning with invalid Element", function () {
+    before();
+    gently.expect(statuspageRequest, "emit", function (event) {
+      assert.equal(event, "warning");
+    });
+    statuspageRequest.sendRequest("PATCH", "bad-element");
+  });
+});
+
+describe('Request (PUT:component-groups)', function () {
+
+  var statuspage, connection, url, gently, request, params, statuspageRequest;
+
+  var before = function () {
+    statuspage = new StatusPageAPI();
+    connection = new fakes.Client(80, statuspage.host);
+    request = new fakes.ClientRequest();
+    gently = new Gently();
+    var params = { foo:"bar" };
+    statuspageRequest = new StatusPageRequest(statuspage);
+  };
+
+  it("should create the update the component group", function () {
+    before();
+    var element = "components-groups/w73463sdw2",
+        correctPath = "/v1/pages/" + statuspage["pageid"] + "/" + element + ".json";
+    gently.expect(GENTLY_HIJACK.hijacked.https, "request", function (options) {
+      assert.equal(options["method"], "PUT");
+      assert.equal(options["path"], correctPath);
+      assert.equal(options["host"], "api.statuspage.io");
+      assert.equal(options["port"], 443);
+      assert.equal(options["headers"]["Content-Type"], 'application/x-www-form-urlencoded');
+      return request;
+    });
+    statuspageRequest.sendRequest("PUT", element);
+  });
+
+  it("should have the correct Content-Length", function () {
+    before();
+    var args = { key: "value" },
+        dataLength = Buffer.byteLength(querystring.stringify(args));
+    gently.expect(GENTLY_HIJACK.hijacked.https, "request", function (options) {
+      assert.equal(options["headers"]["Content-Type"], 'application/x-www-form-urlencoded');
+      assert.equal(options["headers"]["Content-Length"], dataLength);
+      return request;
+    });
+    statuspageRequest.sendRequest("PUT", "components-groups/w73463sdw2", args);
+  });
+
+  it("should emit warning with invalid Element", function () {
+    before();
+    gently.expect(statuspageRequest, "emit", function (event) {
+      assert.equal(event, "warning");
+    });
+    statuspageRequest.sendRequest("PUT", "bad-element");
+  });
+});
+
 describe('Request Events', function () {
     var statuspage, connection, url, gently, request, receivedData, statuspageRequest;
 
